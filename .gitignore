@@ -1,0 +1,32 @@
+# Virtual environment
+cv/cv_venv/
+
+# Python cache
+__pycache__/
+*.py[cod]
+
+# IDE
+.vscode/
+.idea/
+
+# Environment variables
+.env
+
+# Large videos
+*.mp4
+*.avi
+*.mov
+*.mkv
+
+# Model weights
+*.pt
+*.pth
+*.onnx
+
+# Generated output
+cv/output/
+ml/output/
+sumo/output/
+
+# Logs
+*.log
