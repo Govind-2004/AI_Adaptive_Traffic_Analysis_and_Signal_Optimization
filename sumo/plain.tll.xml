@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tlLogics version="1.20" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/tllogic_file.xsd">
+    <tlLogic id="J001" type="static" programID="0" offset="0">
+        <phase duration="30" state="GGGggrrrrrGGGggrrrrr"/>
+        <phase duration="3"  state="yyyyyrrrrryyyyyrrrrr"/>
+        <phase duration="2"  state="rrrrrrrrrrrrrrrrrrrr"/>
+        <phase duration="30" state="rrrrrGGGggrrrrrGGGgg"/>
+        <phase duration="3"  state="rrrrryyyyyrrrrryyyyy"/>
+        <phase duration="2"  state="rrrrrrrrrrrrrrrrrrrr"/>
+    </tlLogic>
+
+    <connection from="E_in" to="N_out" fromLane="0" toLane="0" tl="J001" linkIndex="5"/>
+    <connection from="E_in" to="W_out" fromLane="0" toLane="0" tl="J001" linkIndex="6"/>
+    <connection from="E_in" to="W_out" fromLane="1" toLane="1" tl="J001" linkIndex="7"/>
+    <connection from="E_in" to="S_out" fromLane="1" toLane="1" tl="J001" linkIndex="8"/>
+    <connection from="E_in" to="E_out" fromLane="1" toLane="1" tl="J001" linkIndex="9"/>
+    <connection from="N_in" to="W_out" fromLane="0" toLane="0" tl="J001" linkIndex="0"/>
+    <connection from="N_in" to="S_out" fromLane="0" toLane="0" tl="J001" linkIndex="1"/>
+    <connection from="N_in" to="S_out" fromLane="1" toLane="1" tl="J001" linkIndex="2"/>
+    <connection from="N_in" to="E_out" fromLane="1" toLane="1" tl="J001" linkIndex="3"/>
+    <connection from="N_in" to="N_out" fromLane="1" toLane="1" tl="J001" linkIndex="4"/>
+    <connection from="S_in" to="E_out" fromLane="0" toLane="0" tl="J001" linkIndex="10"/>
+    <connection from="S_in" to="N_out" fromLane="0" toLane="0" tl="J001" linkIndex="11"/>
+    <connection from="S_in" to="N_out" fromLane="1" toLane="1" tl="J001" linkIndex="12"/>
+    <connection from="S_in" to="W_out" fromLane="1" toLane="1" tl="J001" linkIndex="13"/>
+    <connection from="S_in" to="S_out" fromLane="1" toLane="1" tl="J001" linkIndex="14"/>
+    <connection from="W_in" to="S_out" fromLane="0" toLane="0" tl="J001" linkIndex="15"/>
+    <connection from="W_in" to="E_out" fromLane="0" toLane="0" tl="J001" linkIndex="16"/>
+    <connection from="W_in" to="E_out" fromLane="1" toLane="1" tl="J001" linkIndex="17"/>
+    <connection from="W_in" to="N_out" fromLane="1" toLane="1" tl="J001" linkIndex="18"/>
+    <connection from="W_in" to="W_out" fromLane="1" toLane="1" tl="J001" linkIndex="19"/>
+</tlLogics>
