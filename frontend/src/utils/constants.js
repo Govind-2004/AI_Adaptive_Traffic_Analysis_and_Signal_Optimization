@@ -1,0 +1,73 @@
+export const CAMERA_FEEDS = [
+  {
+    id: 'cam-01',
+    name: 'CAM-01: Busy Urban Signal Junction',
+    location: '5th Ave & 42nd St (Downtown)',
+    coordinates: [40.7527, -73.9772],
+    status: 'ACTIVE',
+    fps: 30,
+    resolution: '1080p',
+    density: 'CRITICAL',
+    vehicleCount: 142,
+    avgSpeed: 18.4,
+    streamUrl: '/assets/cam-01.jpg',
+    videoType: 'simulated',
+  },
+  {
+    id: 'cam-02',
+    name: 'CAM-02: Modern Signal Intersection',
+    location: 'I-95 South Exit 8',
+    coordinates: [40.7410, -73.9897],
+    status: 'ACTIVE',
+    fps: 60,
+    resolution: '4K',
+    density: 'MODERATE',
+    vehicleCount: 88,
+    avgSpeed: 42.1,
+    streamUrl: '/assets/cam-02.jpg',
+    videoType: 'simulated',
+  },
+  {
+    id: 'cam-03',
+    name: 'CAM-03: Multi-Lane Smart Signal',
+    location: 'Financial Plaza Corridor',
+    coordinates: [40.7128, -74.0060],
+    status: 'ACTIVE',
+    fps: 30,
+    resolution: '1080p',
+    density: 'LOW',
+    vehicleCount: 34,
+    avgSpeed: 31.8,
+    streamUrl: '/assets/cam-03.jpg',
+    videoType: 'simulated',
+  },
+  {
+    id: 'cam-04',
+    name: 'CAM-04: City Traffic Signal (Evening)',
+    location: 'Westside Highway Ramp',
+    coordinates: [40.7282, -74.0102],
+    status: 'WARNING',
+    fps: 24,
+    resolution: '1080p',
+    density: 'HIGH',
+    vehicleCount: 112,
+    avgSpeed: 12.6,
+    streamUrl: '/assets/cam-04.jpg',
+    videoType: 'simulated',
+  }
+];
+
+export const INCIDENT_TYPES = {
+  ACCIDENT: { label: 'Accident Reported', severity: 'CRITICAL', color: '#DC2626' },
+  CONGESTION: { label: 'Heavy Traffic Congestion', severity: 'HIGH', color: '#D97706' },
+  STALLED_VEHICLE: { label: 'Stalled Vehicle', severity: 'MODERATE', color: '#CA8A04' },
+  ILLEGAL_PARKING: { label: 'Lane Obstruction', severity: 'LOW', color: '#16A34A' },
+  EMERGENCY_ROUTING: { label: 'Emergency Priority Active', severity: 'CRITICAL', color: '#2563EB' },
+};
+
+export const DEFAULT_CONFIG = {
+  USE_MOCK_DATA: true,
+  BACKEND_BASE_URL: import.meta.env.VITE_BACKEND_URL || 'http://localhost:8000/api/v1',
+  WEBSOCKET_URL: import.meta.env.VITE_WEBSOCKET_URL || 'ws://localhost:8000/ws/traffic',
+  REFRESH_INTERVAL_MS: 2000,
+};

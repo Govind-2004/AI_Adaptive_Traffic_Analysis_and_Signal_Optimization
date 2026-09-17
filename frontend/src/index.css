@@ -1,0 +1,73 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-traffic-dark: #F5F7FA;
+  --color-traffic-card: #FFFFFF;
+  --color-traffic-sidebar: #FFFFFF;
+  --color-traffic-border: #E2E8F0;
+  --color-traffic-primary: #0F172A;
+  --color-traffic-secondary: #64748B;
+  --color-traffic-accent: #0284C7;
+  --color-traffic-cyan: #06B6D4;
+  --color-traffic-green: #16A34A;
+  --color-traffic-yellow: #D97706;
+  --color-traffic-red: #DC2626;
+  --color-traffic-highlight: #E0F2FE;
+
+  --font-sans: 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace;
+}
+
+:root {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  color-scheme: light;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #F5F7FA;
+  color: #0F172A;
+  overflow-x: hidden;
+}
+
+/* Custom crisp light scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: #F1F5F9;
+}
+::-webkit-scrollbar-thumb {
+  background: #CBD5E1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94A3B8;
+}
+
+/* Enterprise Light Cards */
+.card-light {
+  background-color: #FFFFFF;
+  border: 1px solid #E2E8F0;
+  border-radius: 0.875rem; /* 14px */
+  box-shadow: 0 1px 3px 0 rgba(0, 0, 0, 0.04), 0 1px 2px -1px rgba(0, 0, 0, 0.04);
+}
+
+.leaflet-container {
+  font-family: 'Inter', sans-serif !important;
+}
+
+/* Clean Custom Leaflet Popup for Light Theme */
+.custom-leaflet-popup .leaflet-popup-content-wrapper {
+  background: #FFFFFF !important;
+  color: #0F172A !important;
+  border: 1px solid #E2E8F0 !important;
+  border-radius: 0.75rem !important;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1) !important;
+}
+.custom-leaflet-popup .leaflet-popup-tip {
+  background: #FFFFFF !important;
+}
