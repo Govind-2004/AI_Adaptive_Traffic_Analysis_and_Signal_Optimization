@@ -14,8 +14,8 @@ as a reliable fallback even if the prediction model underperforms.
 # right now they're reasonable starting guesses for a moderately busy urban intersection.
 
 REFERENCE_RANGES = {
-    "queue_length": {"min": 0, "max": 100},      # meters (or vehicle count, once M1 confirms unit)
-    "vehicle_count": {"min": 0, "max": 60},        # vehicles observed in the approach
+    "queue_length": {"min": 0, "max": 20},       # halting vehicle count -- retuned from real SUMO data
+    "vehicle_count": {"min": 0, "max": 20},        # vehicles observed on a 200m approach edge
     "average_speed": {"min": 0, "max": 15},        # m/s -- note: LOWER speed = MORE congestion
 }
 

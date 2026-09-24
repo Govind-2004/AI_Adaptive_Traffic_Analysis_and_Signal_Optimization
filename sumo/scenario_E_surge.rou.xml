@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+SCENARIO E: SUDDEN TRAFFIC SURGE
+Purpose: the hardest, most important test, specifically exercises the
+PREDICTION component, not just reactive optimization. Traffic starts
+balanced/normal, then North approach suddenly spikes partway through
+the run. A purely reactive system will always lag the surge; a system
+using short-term prediction should start adapting just before the peak.
+HELD OUT from prediction model training, used only for generalization
+testing and the final fixed-vs-adaptive comparison.
+
+Phase 1 (0-300s): all approaches balanced, matching Scenario B (about 400 veh/hr each).
+Phase 2 (300-700s): North surges to about 900 veh/hr while South/East/West continue
+at their Phase 1 baseline rate, unchanged.
+-->
+<routes>
+    <vType id="car" vClass="passenger" length="4.5" maxSpeed="13.9" accel="2.6" decel="4.5" sigma="0.5" laneChangeModel="LC2013" lcStrategic="0" lcSpeedGain="0" lcKeepRight="0" lcCooperative="0"/>
+
+    <!-- PHASE 1 (0-300s): balanced traffic, all four approaches -->
+    <flow id="E_north_through_p1" type="car" from="N_in" to="S_out" begin="0" end="300" vehsPerHour="260" departLane="1" departSpeed="max"/>
+    <flow id="E_north_right_p1"   type="car" from="N_in" to="W_out" begin="0" end="300" vehsPerHour="90"  departLane="2" departSpeed="max"/>
+    <flow id="E_north_left_p1"    type="car" from="N_in" to="E_out" begin="0" end="300" vehsPerHour="50"  departLane="0" departSpeed="max"/>
+
+    <flow id="E_south_through" type="car" from="S_in" to="N_out" begin="0" end="700" vehsPerHour="260" departLane="1" departSpeed="max"/>
+    <flow id="E_south_right"   type="car" from="S_in" to="E_out" begin="0" end="700" vehsPerHour="90"  departLane="2" departSpeed="max"/>
+    <flow id="E_south_left"    type="car" from="S_in" to="W_out" begin="0" end="700" vehsPerHour="50"  departLane="0" departSpeed="max"/>
+
+    <flow id="E_east_through"  type="car" from="E_in" to="W_out" begin="0" end="700" vehsPerHour="260" departLane="1" departSpeed="max"/>
+    <flow id="E_east_right"    type="car" from="E_in" to="N_out" begin="0" end="700" vehsPerHour="90"  departLane="2" departSpeed="max"/>
+    <flow id="E_east_left"     type="car" from="E_in" to="S_out" begin="0" end="700" vehsPerHour="50"  departLane="0" departSpeed="max"/>
+
+    <flow id="E_west_through"  type="car" from="W_in" to="E_out" begin="0" end="700" vehsPerHour="260" departLane="1" departSpeed="max"/>
+    <flow id="E_west_right"    type="car" from="W_in" to="S_out" begin="0" end="700" vehsPerHour="90"  departLane="2" departSpeed="max"/>
+    <flow id="E_west_left"     type="car" from="W_in" to="N_out" begin="0" end="700" vehsPerHour="50"  departLane="0" departSpeed="max"/>
+
+    <!-- PHASE 2 (300-700s): NORTH SURGES, South/East/West already continuing above unchanged -->
+    <flow id="E_north_through_p2" type="car" from="N_in" to="S_out" begin="300" end="700" vehsPerHour="630" departLane="1" departSpeed="max"/>
+    <flow id="E_north_right_p2"   type="car" from="N_in" to="W_out" begin="300" end="700" vehsPerHour="180" departLane="2" departSpeed="max"/>
+    <flow id="E_north_left_p2"    type="car" from="N_in" to="E_out" begin="300" end="700" vehsPerHour="90"  departLane="0" departSpeed="max"/>
+</routes>

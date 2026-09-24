@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+SCENARIO D: HEAVY EAST-WEST TRAFFIC
+Purpose: the mirror image of Scenario C. Proves the system isn't biased
+toward one axis; a system that only performs well favoring North-South
+would be a red flag. This scenario is HELD OUT from prediction model
+training entirely, used only to test generalization and for the final
+fixed-vs-adaptive comparison.
+
+East/West (heavy): about 700 vehicles per hour each.
+North/South (light): about 120 vehicles per hour each, matching Scenario A.
+-->
+<routes>
+    <vType id="car" vClass="passenger" length="4.5" maxSpeed="13.9" accel="2.6" decel="4.5" sigma="0.5" laneChangeModel="LC2013" lcStrategic="0" lcSpeedGain="0" lcKeepRight="0" lcCooperative="0"/>
+
+    <!-- NORTH (light): through to South, right to West, left to East -->
+    <flow id="D_north_through" type="car" from="N_in" to="S_out" begin="0" end="600" vehsPerHour="80" departLane="1" departSpeed="max"/>
+    <flow id="D_north_right"   type="car" from="N_in" to="W_out" begin="0" end="600" vehsPerHour="25" departLane="2" departSpeed="max"/>
+    <flow id="D_north_left"    type="car" from="N_in" to="E_out" begin="0" end="600" vehsPerHour="15" departLane="0" departSpeed="max"/>
+
+    <!-- SOUTH (light): through to North, right to East, left to West -->
+    <flow id="D_south_through" type="car" from="S_in" to="N_out" begin="0" end="600" vehsPerHour="80" departLane="1" departSpeed="max"/>
+    <flow id="D_south_right"   type="car" from="S_in" to="E_out" begin="0" end="600" vehsPerHour="25" departLane="2" departSpeed="max"/>
+    <flow id="D_south_left"    type="car" from="S_in" to="W_out" begin="0" end="600" vehsPerHour="15" departLane="0" departSpeed="max"/>
+
+    <!-- EAST (heavy): through to West, right to North, left to South -->
+    <flow id="D_east_through"  type="car" from="E_in" to="W_out" begin="0" end="600" vehsPerHour="490" departLane="1" departSpeed="max"/>
+    <flow id="D_east_right"    type="car" from="E_in" to="N_out" begin="0" end="600" vehsPerHour="140" departLane="2" departSpeed="max"/>
+    <flow id="D_east_left"     type="car" from="E_in" to="S_out" begin="0" end="600" vehsPerHour="70"  departLane="0" departSpeed="max"/>
+
+    <!-- WEST (heavy): through to East, right to South, left to North -->
+    <flow id="D_west_through"  type="car" from="W_in" to="E_out" begin="0" end="600" vehsPerHour="490" departLane="1" departSpeed="max"/>
+    <flow id="D_west_right"    type="car" from="W_in" to="S_out" begin="0" end="600" vehsPerHour="140" departLane="2" departSpeed="max"/>
+    <flow id="D_west_left"     type="car" from="W_in" to="N_out" begin="0" end="600" vehsPerHour="70"  departLane="0" departSpeed="max"/>
+</routes>

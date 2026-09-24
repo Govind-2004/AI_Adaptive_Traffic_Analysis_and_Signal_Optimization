@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+SCENARIO C: HEAVY NORTH-SOUTH TRAFFIC
+Purpose: this is where fixed-time signals structurally fail. North-South is
+jammed while East-West is comparatively light, but a fixed-time signal gives
+both directions equal time regardless of actual demand. This is expected to
+be the strongest, most convincing improvement case for adaptive control.
+
+North/South (heavy): about 700 vehicles per hour each.
+East/West (light): about 120 vehicles per hour each, matching Scenario A.
+-->
+<routes>
+    <vType id="car" vClass="passenger" length="4.5" maxSpeed="13.9" accel="2.6" decel="4.5" sigma="0.5" laneChangeModel="LC2013" lcStrategic="0" lcSpeedGain="0" lcKeepRight="0" lcCooperative="0"/>
+
+    <!-- NORTH (heavy): through to South, right to West, left to East -->
+    <flow id="C_north_through" type="car" from="N_in" to="S_out" begin="0" end="600" vehsPerHour="490" departLane="1" departSpeed="max"/>
+    <flow id="C_north_right"   type="car" from="N_in" to="W_out" begin="0" end="600" vehsPerHour="140" departLane="2" departSpeed="max"/>
+    <flow id="C_north_left"    type="car" from="N_in" to="E_out" begin="0" end="600" vehsPerHour="70"  departLane="0" departSpeed="max"/>
+
+    <!-- SOUTH (heavy): through to North, right to East, left to West -->
+    <flow id="C_south_through" type="car" from="S_in" to="N_out" begin="0" end="600" vehsPerHour="490" departLane="1" departSpeed="max"/>
+    <flow id="C_south_right"   type="car" from="S_in" to="E_out" begin="0" end="600" vehsPerHour="140" departLane="2" departSpeed="max"/>
+    <flow id="C_south_left"    type="car" from="S_in" to="W_out" begin="0" end="600" vehsPerHour="70"  departLane="0" departSpeed="max"/>
+
+    <!-- EAST (light): through to West, right to North, left to South -->
+    <flow id="C_east_through"  type="car" from="E_in" to="W_out" begin="0" end="600" vehsPerHour="80" departLane="1" departSpeed="max"/>
+    <flow id="C_east_right"    type="car" from="E_in" to="N_out" begin="0" end="600" vehsPerHour="25" departLane="2" departSpeed="max"/>
+    <flow id="C_east_left"     type="car" from="E_in" to="S_out" begin="0" end="600" vehsPerHour="15" departLane="0" departSpeed="max"/>
+
+    <!-- WEST (light): through to East, right to South, left to North -->
+    <flow id="C_west_through"  type="car" from="W_in" to="E_out" begin="0" end="600" vehsPerHour="80" departLane="1" departSpeed="max"/>
+    <flow id="C_west_right"    type="car" from="W_in" to="S_out" begin="0" end="600" vehsPerHour="25" departLane="2" departSpeed="max"/>
+    <flow id="C_west_left"     type="car" from="W_in" to="N_out" begin="0" end="600" vehsPerHour="15" departLane="0" departSpeed="max"/>
+</routes>
