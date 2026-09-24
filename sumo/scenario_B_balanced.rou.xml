@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+SCENARIO B: BALANCED TRAFFIC
+Purpose: "typical day" baseline, roughly equal demand on all four approaches.
+Fixed time signals are reasonably well suited to balanced demand (equal green
+time roughly matches equal need), so this is a fair, moderate test. Expect
+a moderate, not dramatic, improvement from adaptive control here.
+
+Total per approach: about 400 vehicles per hour (moderate, typical urban intersection).
+Same through/right/left proportions as Scenario A, scaled up.
+-->
+<routes>
+    <vType id="car" vClass="passenger" length="4.5" maxSpeed="13.9" accel="2.6" decel="4.5" sigma="0.5" laneChangeModel="LC2013" lcStrategic="0" lcSpeedGain="0" lcKeepRight="0" lcCooperative="0"/>
+
+    <!-- NORTH approach: through to South, right to West, left to East -->
+    <flow id="B_north_through" type="car" from="N_in" to="S_out" begin="0" end="600" vehsPerHour="260" departLane="1" departSpeed="max"/>
+    <flow id="B_north_right"   type="car" from="N_in" to="W_out" begin="0" end="600" vehsPerHour="90"  departLane="2" departSpeed="max"/>
+    <flow id="B_north_left"    type="car" from="N_in" to="E_out" begin="0" end="600" vehsPerHour="50"  departLane="0" departSpeed="max"/>
+
+    <!-- SOUTH approach: through to North, right to East, left to West -->
+    <flow id="B_south_through" type="car" from="S_in" to="N_out" begin="0" end="600" vehsPerHour="260" departLane="1" departSpeed="max"/>
+    <flow id="B_south_right"   type="car" from="S_in" to="E_out" begin="0" end="600" vehsPerHour="90"  departLane="2" departSpeed="max"/>
+    <flow id="B_south_left"    type="car" from="S_in" to="W_out" begin="0" end="600" vehsPerHour="50"  departLane="0" departSpeed="max"/>
+
+    <!-- EAST approach: through to West, right to North, left to South -->
+    <flow id="B_east_through"  type="car" from="E_in" to="W_out" begin="0" end="600" vehsPerHour="260" departLane="1" departSpeed="max"/>
+    <flow id="B_east_right"    type="car" from="E_in" to="N_out" begin="0" end="600" vehsPerHour="90"  departLane="2" departSpeed="max"/>
+    <flow id="B_east_left"     type="car" from="E_in" to="S_out" begin="0" end="600" vehsPerHour="50"  departLane="0" departSpeed="max"/>
+
+    <!-- WEST approach: through to East, right to South, left to North -->
+    <flow id="B_west_through"  type="car" from="W_in" to="E_out" begin="0" end="600" vehsPerHour="260" departLane="1" departSpeed="max"/>
+    <flow id="B_west_right"    type="car" from="W_in" to="S_out" begin="0" end="600" vehsPerHour="90"  departLane="2" departSpeed="max"/>
+    <flow id="B_west_left"     type="car" from="W_in" to="N_out" begin="0" end="600" vehsPerHour="50"  departLane="0" departSpeed="max"/>
+</routes>
