@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<configuration>
+    <input>
+    	<net-file value="intersection.net.xml"/>
+    	<route-files value="scenario_A_low.rou.xml"/>
+    </input>
+    <time>
+        <begin value="0"/>
+        <end value="700"/>
+    </time>
+</configuration>

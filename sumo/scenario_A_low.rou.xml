@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+SCENARIO A: LOW TRAFFIC
+Purpose: sanity check baseline. With barely any congestion to manage, adaptive
+control should perform similarly to fixed time. This is the expected, honest
+result, not a failure; it proves the system doesn't do anything strange or
+wasteful when there's nothing to optimize.
+
+Traffic mix per approach, per hour: mostly through traffic, some right turns
+(the conflicting movement in left hand traffic), fewer left turns (free movement).
+Total per approach: about 120 vehicles per hour (light).
+-->
+<routes>
+    <vType id="car" vClass="passenger" length="4.5" maxSpeed="13.9" accel="2.6" decel="4.5" sigma="0.5" laneChangeModel="LC2013" lcStrategic="0" lcSpeedGain="0" lcKeepRight="0" lcCooperative="0"/>
+
+    <!-- NORTH approach: through to South, right to West, left to East -->
+    <flow id="A_north_through" type="car" from="N_in" to="S_out" begin="0" end="600" vehsPerHour="80" departLane="1" departSpeed="max"/>
+    <flow id="A_north_right"   type="car" from="N_in" to="W_out" begin="0" end="600" vehsPerHour="25" departLane="2" departSpeed="max"/>
+    <flow id="A_north_left"    type="car" from="N_in" to="E_out" begin="0" end="600" vehsPerHour="15" departLane="0" departSpeed="max"/>
+
+    <!-- SOUTH approach: through to North, right to East, left to West -->
+    <flow id="A_south_through" type="car" from="S_in" to="N_out" begin="0" end="600" vehsPerHour="80" departLane="1" departSpeed="max"/>
+    <flow id="A_south_right"   type="car" from="S_in" to="E_out" begin="0" end="600" vehsPerHour="25" departLane="2" departSpeed="max"/>
+    <flow id="A_south_left"    type="car" from="S_in" to="W_out" begin="0" end="600" vehsPerHour="15" departLane="0" departSpeed="max"/>
+
+    <!-- EAST approach: through to West, right to North, left to South -->
+    <flow id="A_east_through"  type="car" from="E_in" to="W_out" begin="0" end="600" vehsPerHour="80" departLane="1" departSpeed="max"/>
+    <flow id="A_east_right"    type="car" from="E_in" to="N_out" begin="0" end="600" vehsPerHour="25" departLane="2" departSpeed="max"/>
+    <flow id="A_east_left"     type="car" from="E_in" to="S_out" begin="0" end="600" vehsPerHour="15" departLane="0" departSpeed="max"/>
+
+    <!-- WEST approach: through to East, right to South, left to North -->
+    <flow id="A_west_through"  type="car" from="W_in" to="E_out" begin="0" end="600" vehsPerHour="80" departLane="1" departSpeed="max"/>
+    <flow id="A_west_right"    type="car" from="W_in" to="S_out" begin="0" end="600" vehsPerHour="25" departLane="2" departSpeed="max"/>
+    <flow id="A_west_left"     type="car" from="W_in" to="N_out" begin="0" end="600" vehsPerHour="15" departLane="0" departSpeed="max"/>
+</routes>
